@@ -31,7 +31,7 @@ public class BookController {
 	}
 	//LISÄYKSEN JÄLKEEN /SAVE PALAUTTAA KÄYTTÄJÄN SAVEN JLK TAKAISIN BOOKLIST.html
 	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public String save(Book book) {
+	public String saveBook(Book book) {
 		repository.save(book);
 		return "redirect:booklist";
 	}
@@ -40,6 +40,12 @@ public class BookController {
 	public String deleteBook(@PathVariable("id") Long id, Model model) {
 		repository.deleteById(id);
 		return "redirect:../booklist";
+	}
+	//EDITOINTI
+	@RequestMapping(value="/edit/{id}")
+	public String editBook(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("books", repository.findbyId(id));
+		return "editbook";
 	}
 
 }
