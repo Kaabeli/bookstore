@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Palvelinohjelmointi - Bookstore - 1700316</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add Books</h1>
+	<form class="table table-striped" action="" th:object="${book}" th:action="@{save}" method="POST" >
+		<label>Title</label>
+		<input type="text" id="title" th:field="${book.title}">
+		<br />
+		<label>Author</label>
+		<input type="text" id="title" th:field="${book.author}">
+		<br />
+		<label>Year</label>
+		<input type="text" id="title" th:field="${book.year}">
+		<br />
+		<label>ISBN</label>
+		<input type="text" id="title" th:field="${book.isbn}">
+		<br />
+		<label>Price</label>
+		<input type="text" id="title" th:field="${book.price}">
+		<br />
+		<input type="submit" value="save">
+		<br />
+	</form>
+	<a href="/booklist" class="btn btn-primary">Book list</a>
+
+</body>
+</html>
