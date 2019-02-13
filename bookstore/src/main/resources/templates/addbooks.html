@@ -3,6 +3,7 @@
 <head>
     <title>Palvelinohjelmointi - Bookstore - 1700316</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 	<h1>Add Books</h1>
@@ -22,7 +23,7 @@
 		<label>Price</label>
 		<input type="text" id="title" th:field="${book.price}">
 		<br />
-		<input type="submit" value="save">
+		<input type="submit" value="save" class="btn btn-success">
 		<br />
 	</form>
 	<a href="/booklist" class="btn btn-primary">Book list</a>
