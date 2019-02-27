@@ -23,7 +23,12 @@
 		<label>Price</label>
 		<input type="text" id="title" th:field="${book.price}">
 		<br />
-		<input type="submit" value="save" class="btn btn-success">
+		<label>Category</label>
+		<select id="selcategory" th:field="*{category}">
+			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
+		</select>
+		<br />
+		<input type="submit" value="Save" class="btn btn-success">
 		<br />
 	</form>
 	<a href="/booklist" class="btn btn-primary">Book list</a>

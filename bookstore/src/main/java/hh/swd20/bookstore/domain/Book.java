@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+import hh.swd20.bookstore.domain.Category;
 
 
 @Entity
@@ -20,16 +23,22 @@ public class Book {
 	private String isbn;
 	private String price;
 	
+	
+	@ManyToOne
+	@JoinColumn(name = "categoryid")
+	private Category category;
+	
 	public Book() {}
 	
 	//CONSTRUCTOR
-	public Book(String title, String author, int year, String isbn, String price) {
+	public Book(String title, String author, int year, String isbn, String price, Category category) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+		this.category = category;
 	}
 
 	//GETTER & SETTER
@@ -80,6 +89,13 @@ public class Book {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	
 }
