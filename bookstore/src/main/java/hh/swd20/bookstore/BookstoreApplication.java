@@ -27,7 +27,7 @@ public class BookstoreApplication {
 			repository.save(new Book("Kuinka käyttää 6 tuntia Javaan", "Janne Saikkonen", 2019, "WW22211", "20", crepository.findByName("Kauhu").get(0)));
 			repository.save(new Book("Kuinka keittää ponua kellarissa", "Seppo Taalasmaa", 1999, "WW14563", "15", crepository.findByName("Jännitys").get(0)));
 		};
-		
+	
 
 	}
 }
