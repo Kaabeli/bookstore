@@ -6,25 +6,31 @@
 	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>Edit Book</h1>
-	<form class="table table-striped" action="" th:object="${book}" th:action="@{save}" method="POST" >
+	<h1 style="text-align:center;">Edit Book</h1>
+	<h2 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h2>
+	<form class="table table-striped" action="" th:object="${book}" th:action="@{../save}" method="POST" >
 		<input type="hidden" th:field="${book.id}">
 		<label>Title</label>
 		<input type="text" id="title" th:field="${book.title}">
 		<br />
 		<label>Author</label>
-		<input type="text" id="title" th:field="${book.author}">
+		<input type="text" id="author" th:field="${book.author}">
 		<br />
 		<label>Year</label>
-		<input type="text" id="title" th:field="${book.year}">
+		<input type="text" id="year" th:field="${book.year}">
 		<br />
 		<label>ISBN</label>
-		<input type="text" id="title" th:field="${book.isbn}">
+		<input type="text" id="isbn" th:field="${book.isbn}">
 		<br />
 		<label>Price</label>
-		<input type="text" id="title" th:field="${book.price}">
+		<input type="text" id="price" th:field="${book.price}">
 		<br />
-		<input type="submit" value="save" class="btn btn-success">
+		<label>Category</label>
+		<select id="selcategory" th:field="*{category}">
+			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
+		</select>
+		<br />
+		<input type="submit" style="margin-left: 159px" value="Save" class="btn btn-success">
 		<br />
 	</form>
 	<a href="/booklist" class="btn btn-primary">Book list</a>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import hh.swd20.bookstore.domain.Book;
 import hh.swd20.bookstore.domain.BookRepository;
@@ -22,7 +23,14 @@ public class BookController {
 	//AUTOWIRED
 	@Autowired
 	private BookRepository repository;
-	@Autowired CategoryRepository Crepository;
+	@Autowired 
+	private CategoryRepository Crepository;
+	
+	//LOGIN
+	@RequestMapping(value= {"/login", "/"})
+	public String login() {
+		return "login";
+	}
 
 	//BOOKLIST
 	@RequestMapping(value="/booklist")
@@ -52,8 +60,8 @@ public class BookController {
 	//EDITOINTI
 	@RequestMapping(value="/edit/{id}")
 	public String editBook(@PathVariable("id") Long id, Model model) {
-		repository.findById(id);
-		model.addAttribute("book");
+		model.addAttribute("book", repository.findById(id));
+		model.addAttribute("categories", Crepository.findAll());
 		return "editbook";
 	}
 	//RESTful service to get all books
