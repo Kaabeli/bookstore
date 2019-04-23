@@ -7,6 +7,7 @@
 </head>
 <body>
 	<h1 style="text-align:center">Sign-up</h1>
+	<div class="container">
      <div class="col-md-4">
 		<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
 			<div>
@@ -28,6 +29,7 @@
 			<input type="submit" class="btn btn-success" value="Signup"></input>
 			<a href="/login" class="btn btn-primary">Login</a>		
 		</form>
+		</div>
 	</div>
 </body>
 </html>

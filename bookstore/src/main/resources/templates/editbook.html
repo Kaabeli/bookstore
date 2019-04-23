@@ -7,33 +7,35 @@
 </head>
 <body>
 	<h1 style="text-align:center;">Edit Book</h1>
+			<div class="container">
 	<h2 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h2>
-	<form class="table table-striped" action="" th:object="${book}" th:action="@{../save}" method="POST" >
+	<form class="form-group" action="" th:object="${book}" th:action="@{../save}" method="POST" >
 		<input type="hidden" th:field="${book.id}">
 		<label>Title</label>
-		<input type="text" id="title" th:field="${book.title}">
+		<input type="text" id="title" th:field="${book.title}" class="form-control">
 		<br />
 		<label>Author</label>
-		<input type="text" id="author" th:field="${book.author}">
+		<input type="text" id="author" th:field="${book.author}" class="form-control">
 		<br />
 		<label>Year</label>
-		<input type="text" id="year" th:field="${book.year}">
+		<input type="text" id="year" th:field="${book.year}" class="form-control">
 		<br />
 		<label>ISBN</label>
-		<input type="text" id="isbn" th:field="${book.isbn}">
+		<input type="text" id="isbn" th:field="${book.isbn}" class="form-control">
 		<br />
 		<label>Price</label>
-		<input type="text" id="price" th:field="${book.price}">
+		<input type="text" id="price" th:field="${book.price}" class="form-control">
 		<br />
 		<label>Category</label>
-		<select id="selcategory" th:field="*{category}">
+		<select id="selcategory" th:field="*{category}" class="form-control">
 			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
 		</select>
 		<br />
-		<input type="submit" style="margin-left: 159px" value="Save" class="btn btn-success">
+		<input type="submit" value="Save" class="btn btn-success">
+			<a href="/booklist" class="btn btn-primary">Back to Booklist</a>
 		<br />
 	</form>
-	<a href="/booklist" class="btn btn-primary">Book list</a>
+	</div>
 
 </body>
 </html>
